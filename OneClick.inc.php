@@ -1,29 +1,22 @@
 <html>
 <head>
-  <title> Button Example </title>
+  <title> Clickable Button </title>
 </head>
 <body>
     <div class = "panel panel-default">
-     <div class = "pull-left">
-      <buttom id = "clickButton"> Click me </button>
-    </div>
-  <div class = "panel panel-default">
     <div class = "pull-right"> 
     <img src = "plugins/OneClick/images/USLA.png" title = "USA LOGO" style = "max-height: 80px">
     </div>
   </div>
+  
+    <button id = "myButton"> Click Me </button>
 
         <script>
-          document.getElementById("clickButton").addEventListener("click", function() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "plugins/OneClick/main.py", true);
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log("Python script executed successfully!");
-              }
-            };
-            xhr.send();
-          });
+              var button = document.getElementById("myButton");
+
+              button.addEventListener("click", function() {
+                alert("Button Clicked");
+              });
         </script>
 </body>
 </html>
