@@ -7,8 +7,9 @@ def main():
     f = open("myfile.txt", "w")
 
     # Define your API URL and API token
-    api_url = 'http://localhost:8080/api/v0'  # Replace with your LibreNMS API URL
-    api_token = '8cb9a0c868ec941994434e7ba0248a41'  # Replace with your API token
+    api_url = 'http://localhost:8080/api/v0'  
+    api_token = '8cb9a0c868ec941994434e7ba0248a41' 
+    
     # Define the API endpoint to list devices
     endpoint = 'devices'
 
