@@ -1,55 +1,96 @@
-#from netmiko import ConnectHandler
-#from librenms_handler.devices import Devices
+# your_script.py
+from netmiko import ConnectHandler
 import requests
 import json
 
-api_url = 'http://localhost:8080/api/v0'  
-api_token = 'ff6ac30ff4279a8340bf78f79084d5e4'  
+def main():
+    f = open("myfile.txt", "w")
 
-endpoint = 'devices'
+    # Define your API URL and API token
+    api_url = 'http://localhost:8080/api/v0'  # Replace with your LibreNMS API URL
+    api_token = '8cb9a0c868ec941994434e7ba0248a41'  # Replace with your API token
+    # Define the API endpoint to list devices
+    endpoint = 'devices'
 
-headers = {
-    'X-Auth-Token': api_token,
-    'Content-Type': 'application/json',
-}
+    # Set the request headers with the API token for authentication
+    headers = {
+        'X-Auth-Token': api_token,
+        'Content-Type': 'application/json',
+    }
 
-try:
-    response = requests.get(f'{api_url}/{endpoint}', headers=headers)
-    response.raise_for_status()  
+    # Make the API request to list devices
+    try:
+        response = requests.get(f'{api_url}/{endpoint}', headers=headers)
+        response.raise_for_status()  # Check for HTTP status code errors
 
-    response_data = json.loads(response.text)
+        # Parse the JSON response into a Python dictionary
+        response_data = json.loads(response.text)
 
+        # Check if devices are nested under a key, e.g., "devices"
+        if "devices" in response_data:
+            devices = response_data["devices"]
+        else:
+            devices = response_data  # Assume devices are at the root level
 
-    if "devices" in response_data:
-        devices = response_data["devices"]
-    else:
-        devices = response_data 
+        for device in devices:
+    
+            # Extract specific fields
+            deviceID = device.get('device_id', '')
+            #host = device.get('ip', '')
+            #operatingSys = device.get('os', '')
 
-
-    filtered_devices = []
-
-    for device in devices:
-        # Extract specific fields
-        filtered_device = {
-            'device_id': device.get('device_id', ''),
-            'hostname': device.get('hostname', ''),
-            'sysName': device.get('sysName', ''),
-            'ip': device.get('ip', ''),
-            'port': device.get('port', ''),
-            'features': device.get('features', ''),
-            'location_id': device.get('location_id', ''),
-            'os': device.get('os', ''),
-            'type': device.get('type', ''),
+            if deviceID == 2:
+                deviceID = device.get('device_id','') 
+                host = device.get('hostname', '')
+                operatingSys = device.get('os', '')
+            
+                if operatingSys == "iosxr":
+                    operatingSys = "cisco_xr"
+    
+        print(deviceID, host, operatingSys)
+        cisco_881 = {
+            'device_type': operatingSys,
+            'host': host,
+            'username': 'username',
+            'password': 'password', 
         }
-        filtered_devices.append(filtered_device)
 
+        print("before")
+        net_connect = ConnectHandler(**cisco_881)
+        print("after")
+        commandList = [
+            'show interfaces descriptions',
+            'show controllers optics',
+            'show inventory',
+            'show log | exc SSHD',
+            'show alarms brief',
+            'show alarms detail',
+            'show watchdog memory-state',
+            'show ethernet loopback active',
+            'show version',
+            'show l2vpn xconnect',
+            'show l2vpn bridge-domain',
+            'show l2vpn xconnect detail',
+            'show running-config l2vpn',
+            'show bfd session',
+            'show isis adjacency',
+            'show run router isis',
+            'show bgp sessions',
+            'show bgp neighbors',
+            'show run router bgp',
+            'show arp'
+        ]
 
-    with open('OneClickDiag.json', 'w') as file:
-        json.dump(filtered_devices, file, indent=4)
+        for x in commandList:
+            print("running: ", x)
+            print(net_connect.send_command(x, expect_string=r"#"))
+            f.write(net_connect.send_command(x, expect_string=r"#"))
 
-    print("Data has been saved to 'OneClickDiag.json'")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+    f.close()
+    return "done"
+           
 
-except requests.exceptions.RequestException as e:
-    print(f"An error occurred: {e}")
-
-
+if __name__ == "__main__":
+    print(main())
