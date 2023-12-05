@@ -1,1 +1,1 @@
-# LibreNMS_Plugin
+# Oneclick Device Diagnostics
