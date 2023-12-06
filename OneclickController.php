@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\Device\Tabs;
 
 use App\Models\Device;
-use Illuminate\Foundations\Auth\Access\AuthorizeRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use LibreNMS\Interfaces\UI\DeviceTab;
 
