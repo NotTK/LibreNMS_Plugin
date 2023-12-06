@@ -11,8 +11,8 @@ After logging into your LibreNMS server CLI:
 
 ```git clone https://github.com/NotTK/Oneclick``` Clone repo to your home dir
 
-```cd /Oneclick``` Oneclick Directory
+```mv Oneclick/Oneclick.blade.php resources/views/device/tabs/``` Oneclick Directory
 
-```
+```mv 
 
 
