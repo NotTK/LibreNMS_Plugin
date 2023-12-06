@@ -1,4 +1,5 @@
-//cd /app/Https/Controllers/Device/Tabs/(filename)
+<?php
+
 
 namespace App\Http\Controllers\Device\Tabs;
 
