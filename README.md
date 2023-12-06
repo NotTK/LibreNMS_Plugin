@@ -11,6 +11,8 @@ After logging into your LibreNMS server CLI:
 
 ```git clone https://github.com/NotTK/Oneclick``` Clone repo to your home dir
 
-```cp /
+```cd /Oneclick``` Oneclick Directory
+
+```
 
 
