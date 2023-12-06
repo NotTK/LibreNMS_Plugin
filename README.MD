@@ -20,8 +20,8 @@ Moving OneclickController.php to correct dir: <br>
 ```mv Oneclick/OneclickController.php app/Http/Controllers/Device/Tabs/``` 
 
 Edit the DeviceController.php file: <br>
-```vi app/Http/Controller/DeviceController.php```
-  Using 'vi': \n
+```vi app/Http/Controller/DeviceController.php``` <br>
+  Using 'vi': <br>
     press 'i' to switch to INSERT mode (Typing Mode) <br>
     press 'esc' to switch to READ mode <br>
     to save file and exit you have to be in READ mode and type ':wq' <br>
