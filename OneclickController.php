@@ -8,7 +8,7 @@ use Illuminate\Foundations\Auth\Access\AuthorizeRequests;
 use Illuminate\Http\Request;
 use LibreNMS\Interfaces\UI\DeviceTab;
 
-class OneclickController implemnets DeviceTab {
+class OneclickController implements DeviceTab {
 
   use AuthorizeRequests;
 
