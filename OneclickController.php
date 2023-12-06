@@ -10,7 +10,7 @@ use LibreNMS\Interfaces\UI\DeviceTab;
 
 class OneclickController implements DeviceTab {
 
-  use AuthorizeRequests;
+  use AuthorizesRequests;
 
   public function visible(Device $device): bool {
     return true;
