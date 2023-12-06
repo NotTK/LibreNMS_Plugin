@@ -7,19 +7,19 @@ Installation Instructions:
 
 After logging into your LibreNMS server CLI:
 
-Home dir: 
+Home dir: <br>
 ```cd ~/```
 
-Clone repo to your home dir:
+Clone repo to your home dir: <br>
 ```git clone https://github.com/NotTK/Oneclick```
 
-Moving Oneclick.blade.php to correct dir:
+Moving Oneclick.blade.php to correct dir: <br>
 ```mv Oneclick/Oneclick.blade.php resources/views/device/tabs/```
 
-Moving OneclickController.php to correct dir: 
+Moving OneclickController.php to correct dir: <br>
 ```mv Oneclick/OneclickController.php app/Http/Controllers/Device/Tabs/``` 
 
-Edit the DeviceController.php file: 
+Edit the DeviceController.php file: <br>
 ```vi app/Http/Controller/DeviceController.php```
   Using 'vi': \n
     press 'i' to switch to INSERT mode (Typing Mode) <br>
