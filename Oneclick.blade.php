@@ -18,7 +18,7 @@
 
   <form method = "post" action = "{{ route('executePythonScript') }}">
     @csrf
-    <buttont type = "submit" name = "myButton"> Click for Diagnostics </buttont>
+    <button type = "submit" name = "myButton"> Click for Diagnostics </buttont>
   </form>
 
   </body>
