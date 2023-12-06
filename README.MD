@@ -23,10 +23,10 @@ After logging into your LibreNMS server CLI:
     to leave file without saving you have to be in READ mode and type ':q' <br>
     to force leave file without saving you have to be in READ mode and type ':q!' <br>
 
-One you are editing the DeviceController.php file, find the 'private $tabs',
-at the bottom after the 'CaptureController::class,' press ENTER to add a new line
-(make sure you are in INSERT mode) and type the following:
-```'oneclick' => \App\Http\Controllers\Device\Tabs\OneclickController::class,```
+One you are editing the DeviceController.php file, find the 'private $tabs', <br>
+at the bottom after the 'CaptureController::class,' press ENTER to add a new line <br>
+(make sure you are in INSERT mode) and type the following: <br>
+```'oneclick' => \App\Http\Controllers\Device\Tabs\OneclickController::class,``` 
 
 
 
