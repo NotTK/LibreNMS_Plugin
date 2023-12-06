@@ -1,4 +1,3 @@
-//cd /resources/views/device/tabs/(filename)
 
 @extends('device.index')
 
