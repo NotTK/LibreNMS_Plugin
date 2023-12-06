@@ -37,6 +37,8 @@ class OneclickController implements DeviceTab {
 
     $device->notes = $request->input('note');
     $device->save();
+
+    return back();
   }
 }
 
