@@ -32,14 +32,6 @@ class OneclickController implements DeviceTab {
     return [];
   }
 
-  public function update (Request $request, Device $device) {
-    $this->authorize('update-notes', $device);
-
-    $device->notes = $request->input('note');
-    $device->save();
-
-    return back();
-  }
 }
 
 
