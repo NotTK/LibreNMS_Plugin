@@ -35,6 +35,8 @@ at the bottom after the 'CaptureController::class,' press ENTER to add a new lin
 (make sure you are in INSERT mode) and type the following: <br>
 ```'oneclick' => \App\Http\Controllers\Device\Tabs\OneclickController::class,``` 
 
+From there refresh the device page and see the new tab added.
+
 
 
 
