@@ -32,6 +32,15 @@ class OneclickController implements DeviceTab {
     return [];
   }
 
+  public function executeScript() {
+    try {
+        exec('python3 Tester.py', $output, $return_var);
+        return response()->json(['output' => $output, 'return_var' => $return_var]);
+    } catch (\Exception $e) {
+        return response()->json(['Error' => $e->getMessage()]);
+    }
+  }
+  
 }
 
 
