@@ -37,6 +37,21 @@ at the bottom after the 'CaptureController::class,' press ENTER to add a new lin
 
 From there refresh the device page and see the new tab added.
 
+Adding Laravel Route:
+```vi routes/web.php``` 
+<br>
+Add the following code after the "// Device Tabs" comment near line 80
+<br>
+```Route::post('/run-python-script', function() {
+      try {
+          exec('python3 Tester.py', $output, $return_var);
+
+          return response()->json(['output' => $output, 'return_var' => $return_var]);
+      } catch (Exception $e) {
+          return response()->json(['error' => $e->getMessage()]);
+      }
+  });```
+
 
 
 
