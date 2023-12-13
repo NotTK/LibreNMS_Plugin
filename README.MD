@@ -42,7 +42,7 @@ Adding Laravel Route:
 <br>
 Add the following code after the "// Device Tabs" comment near line 80
 <br>
-```Route::post('/run-python-script', function() {
+```Route::post('/run-python-script', function() {```
       try {
           exec('python3 Tester.py', $output, $return_var);
 
