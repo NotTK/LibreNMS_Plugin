@@ -50,7 +50,7 @@ Add the following code after the "// Device Tabs" comment near line 80
       } catch (Exception $e) {
           return response()->json(['error' => $e->getMessage()]);
       }
-  });```
+  });
 
 
 
